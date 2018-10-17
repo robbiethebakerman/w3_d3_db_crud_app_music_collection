@@ -4,11 +4,12 @@ require("pry-byebug")
 
 artist1 = Artist.new({'name' => 'Captain Beefheart'})
 artist2 = Artist.new({'name' => 'Perfume Genius'})
+artist3 = Artist.new({'name' => 'Florence and the Machine'})
 
 artist1.save()
 artist2.save()
 
-artists_initial = Artist.all
+artists = Artist.all
 
 album1 = Album.new({
   'title' => 'Trout Mask Replica',
@@ -30,7 +31,7 @@ album1.save()
 album2.save()
 album3.save()
 
-albums_initial = Album.all
+albums = Album.all
 
 artist1_albums = artist1.albums()
 artist2_albums = artist2.albums()
@@ -43,6 +44,10 @@ artist1.update
 
 album1.genre = 'No-one knows'
 album1.update
+
+artist3.delete
+
+album2.delete
 
 binding.pry
 nil
