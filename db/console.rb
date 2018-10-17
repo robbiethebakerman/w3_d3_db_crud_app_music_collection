@@ -38,5 +38,11 @@ artist2_albums = artist2.albums()
 artist_album1 = album1.artist
 artist_album2 = album2.artist
 
+artist1.name = 'The Captain'
+artist1.update
+
+album1.genre = 'No-one knows'
+album1.update
+
 binding.pry
 nil
