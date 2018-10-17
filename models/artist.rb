@@ -27,6 +27,16 @@ class Artist
     return artists
   end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM artists
+      WHERE id = $1;"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    artist_details = results[0]
+    artist = Artist.new(artist_details)
+    return artist
+  end
+
   def update()
     sql = "UPDATE artists
       SET name = $1

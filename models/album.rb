@@ -29,6 +29,16 @@ class Album
     return albums
   end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM albums
+      WHERE id = $1;"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    album_details = results[0]
+    album = Album.new(album_details)
+    return album
+  end
+
   def update()
     sql = "UPDATE albums
       SET (title, genre, artist_id) = ($1, $2, $3)

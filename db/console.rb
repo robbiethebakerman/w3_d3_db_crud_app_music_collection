@@ -11,6 +11,7 @@ artist3 = Artist.new({'name' => 'Florence and the Machine'})
 
 artist1.save()
 artist2.save()
+artist3.save()
 
 artists = Artist.all
 
@@ -48,9 +49,13 @@ artist1.update
 album1.genre = 'No-one knows'
 album1.update
 
-artist3.delete
+# artist3.delete
+#
+# album2.delete
 
-album2.delete
+found_artist = Artist.find_by_id(artist3.id)
+
+found_album = Album.find_by_id(album1.id)
 
 binding.pry
 nil
