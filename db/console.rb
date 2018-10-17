@@ -20,11 +20,23 @@ album2 = Album.new({
   'genre' => 'Singer-Songwriter',
   'artist_id' => artist2.id
   })
+album3 = Album.new({
+  'title' => 'Too Bright',
+  'genre' => 'Pop',
+  'artist_id' => artist2.id
+  })
 
 album1.save()
 album2.save()
+album3.save()
 
 albums_initial = Album.all
+
+artist1_albums = artist1.albums()
+artist2_albums = artist2.albums()
+
+artist_album1 = album1.artist
+artist_album2 = album2.artist
 
 binding.pry
 nil

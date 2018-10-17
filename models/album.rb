@@ -29,4 +29,14 @@ class Album
     return albums
   end
 
+  def artist()
+    sql = "SELECT * FROM artists
+      WHERE id = $1"
+    values = [@artist_id]
+    results = SqlRunner.run(sql, values)
+    artist_details = results[0]
+    artist = Artist.new(artist_details)
+    return artist
+  end
+
 end
