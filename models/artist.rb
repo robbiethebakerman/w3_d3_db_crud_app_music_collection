@@ -15,6 +15,7 @@ class Artist
     sql = "INSERT INTO artists (name)
       VALUES ($1)
       RETURNING id;"
+      # Could also just say "RETURNING *" here
     values = [@name]
     results = SqlRunner.run(sql, values)
     @id = results[0]['id'].to_i
